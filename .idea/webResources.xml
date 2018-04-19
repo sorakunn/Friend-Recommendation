@@ -6,9 +6,9 @@
         <entryData>
           <resourceRoots>
             <path value="file://$PROJECT_DIR$/Data" />
-            <path value="file://$PROJECT_DIR$/Data/Friend" />
-            <path value="file://$PROJECT_DIR$/Data/Friend/Result" />
-            <path value="file://$PROJECT_DIR$/Data/Friend/Source" />
+            <path value="file://$PROJECT_DIR$/Data/Result/Friend" />
+            <path value="file://$PROJECT_DIR$/Data/Result" />
+            <path value="file://$PROJECT_DIR$/Data/Source" />
           </resourceRoots>
         </entryData>
       </entry>

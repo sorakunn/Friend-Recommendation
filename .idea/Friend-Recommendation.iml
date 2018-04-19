@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/metric" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/preprocess" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/recommender" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tools" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="inheritedJdk" />
