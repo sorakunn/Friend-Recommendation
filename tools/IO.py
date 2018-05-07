@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 
+
 def read(path):
     """读取某一路径的csv格式数据文件"""
     # 获取根路径
@@ -10,6 +11,7 @@ def read(path):
     path = parrent + '/' + path
     df = pd.read_csv(path, header=0)
     return df
+
 
 def write(df, path):
     # 获取根路径
