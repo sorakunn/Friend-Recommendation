@@ -14,6 +14,6 @@ def merge(subject, amount):
         else:
             filename = root + subject + '(' + str(i) + ').csv'
         # 批量读取数据
-        temp = read(filename)
-        df = df.append(temp,ignore_index=True)            #注意append后要传回
+        row = read(filename)
+        df = df.append(row,ignore_index=True)            # 注意append后要传回
     return df

@@ -8,7 +8,7 @@ def read(path):
     parrent = os.path.dirname(current)
     # 使用 pandas 进行读取
     path = parrent + '/' + path
-    df = pd.read_csv(path, header=0, sep=' ')
+    df = pd.read_csv(path, header=0)
     return df
 
 def write(df, path):
@@ -17,7 +17,7 @@ def write(df, path):
     parrent = os.path.dirname(current)
     # 使用 pandas 进行写出
     path = parrent + '/' + path
-    df.to_csv(path, index=False, sep=' ')
+    df.to_csv(path, index=False, header=False)
 
 
 
