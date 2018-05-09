@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import os
 
 
@@ -13,15 +14,18 @@ def read(path):
     return df
 
 
-def write(df, path):
+def write(df, path,header=False):
     # 获取根路径
     current = os.path.dirname(__file__)
     parrent = os.path.dirname(current)
     # 使用 pandas 进行写出
     path = parrent + '/' + path
-    df.to_csv(path, index=False, header=False)
+    df.to_csv(path, index=False, header=header)
 
-
+def to_list(dataframe):
+    df = np.array(dataframe)  # np.ndarray()
+    df = df.tolist()  # list
+    return df
 
 
 

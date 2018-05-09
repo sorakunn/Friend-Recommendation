@@ -68,6 +68,7 @@ def count_f(subject):
 
 
 def split_a(subject,amount,year):
+    """从url中分离出user_ID与article_ID，同时清洗并提取需要的数据"""
     # 合并数据
     merged = merge('a', subject, amount)
     # 定义存放列表
@@ -103,11 +104,25 @@ def split_a(subject,amount,year):
                 row[6] = row[6][:index]
     # 弹出 url 列，添加 User_ID，Article_ID 列
     merged.pop('页面网址')
-    merged['用户ID'] = user_ids
+    merged['博主ID'] = user_ids
     merged['文章ID'] = article_ids
     # 通过之前存入的index数组，提取出需要的数据行
-    df = pd.DataFrame(columns=["标题", "阅读次数", "时间", "个人分类", "系统分类", "标签", "正文", "用户ID", "文章ID"])
+    df = pd.DataFrame(columns=["标题", "阅读次数", "时间", "个人分类", "系统分类", "标签", "正文", "博主ID", "文章ID",])
     for index in index_of_target:
         df = df.append(merged.ix[index:index])               # 注意要将append后的数据传回
     # 写出数据
-    write(df,'Data/Article/Result/Raw/' + subject + '.csv')
+    write(df,'Data/Article/Result/Raw/' + subject + '.csv',header=True)
+
+
+def count_a(subject):
+    """对有博文的user进行博文篇数计数"""
+    # 读取数据
+    df = read('Data/Article/Result/Raw/' + subject + '.csv')
+    # 定义存放列表
+    result = [['博主ID', '博文数']]
+    # 计数
+    for user in df['博主ID'].unique():
+        result.append([user,to_list(df['博主ID']).count(user)])
+    # 写出文件
+    df = pd.DataFrame(data=result)
+    write(df,'Data/Article/Result/Count/' + subject + '.csv')
